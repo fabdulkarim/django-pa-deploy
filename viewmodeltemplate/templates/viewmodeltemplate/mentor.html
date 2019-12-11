@@ -8,21 +8,23 @@ Mentor
     {% if mentor_obj %}
         {% for mo in mentor_obj %}
             <div class="container">
-                <div class="row single-lines">
+                <div class="row single-lines align-items-center">
                     <div class="col-md-4">
                         <div class="profile-pic-wrapper">
                             <img src="{{mo.image}}" alt="">
                         </div>
                     </div>
-                    <div class="col-md-8">
+                    <div class="col-md-8 complete-info">
                         <h2>{{mo.name}}</h2>
-                        <h3>{{mo.title}} {{mo.experience}}</h3>
+                        <h3>{{mo.title}} &#8212 {{mo.experience}} years</h3>
                         <div>{{mo.quotes}}</div>
                     </div>
                 </div>
             </div>
         {% endfor %}
     {% else %}
-        <p>There are no Mentor available</p>
+        <div class="container">
+            <p>There are no Mentor available</p>
+        </div>
     {% endif %}
 {% endblock %}

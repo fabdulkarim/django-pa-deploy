@@ -6,10 +6,20 @@ Blog {{blogpost_obj.id}}
 {% load static %}
     {% include 'top-content-blog.html' %}
 
-        <div class="content-singles">
-            <img src="{{blogpost_obj.image}}" alt="" class="content-img">
-            <h1>{{blogpost_obj.title}}</h1>
-            <div class="content-text">
+        <div class="content-singles container">
+            <div class="d-flex justify-content-center">
+                <img src="{{blogpost_obj.image}}" alt="" class="content-img">
+            </div>
+            <h1 class="text-center">{{blogpost_obj.title}}</h1>
+            <div class="row">
+                <div class="col-md-6">
+                    Posted at {{blogpost_obj.createdat}}
+                </div>
+                <div class="col-md-6 text-right">
+                    {{blogpost_obj.comment}} Komen
+                </div>
+            </div>
+            <div class="content-text-2 text-justify">
                 {{blogpost_obj.content}}
             </div>
         </div>

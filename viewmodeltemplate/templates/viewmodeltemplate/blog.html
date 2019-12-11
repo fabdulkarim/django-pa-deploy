@@ -6,15 +6,27 @@ Blog
 {% block content %}
 {% load static %}
     {% include 'top-content-blog.html' %}
-    <div class="button-blog-input">
-        <a href="{% url 'viewmodeltemplate:blog_input' %}">Tambahkan posting blog baru</a>
+    <div class="d-flex justify-content-center">
+        <button type="button" class="btn align-self-center flex-column">
+            <a href="{% url 'viewmodeltemplate:blog_input' %}">Tambahkan posting blog baru</a>
+        </button>
     </div>
-    {% if blog_object %}
+        {% if blog_object %}
         {% for bo in blog_object %}
-            <div class="content-singles">
-                <img src="{{bo.image}}" alt="" class="content-img">
-                <h1>{{bo.title}}</h1>
-                <div class="content-text">
+            <div class="content-singles container">
+                <div class="d-flex justify-content-center blog-img-wrapper">
+                    <img src="{{bo.image}}" alt="" class="content-img">
+                </div>
+                <div class="row">
+                    <div class="col-md-6 text-left">
+                        Posted at {{bo.createdat}}
+                    </div>
+                    <div class="col-md-6 text-right">
+                        {{bo.comment}} Komen
+                    </div>
+                </div>
+                <h1 class="text-center">{{bo.title}}</h1>
+                <div class="content-text text-justify">
                     {{bo.content}}
                 </div>
                 <a href="{% url 'viewmodeltemplate:blogpost' bo.id %}">Baca Lebih Lanjut</a>

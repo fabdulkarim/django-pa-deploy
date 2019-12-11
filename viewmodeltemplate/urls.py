@@ -3,6 +3,7 @@ from . import views
 
 app_name = 'viewmodeltemplate'
 urlpatterns = [
+    path('', views.blog , name='home'),
     path('blog', views.blog , name='blog'),
     path('mentor', views.mentor , name='mentor'),
     path('mentee/', views.mentee , name='mentee'),

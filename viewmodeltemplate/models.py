@@ -7,6 +7,8 @@ class Blog(models.Model):
     image = models.CharField(max_length=255)
     title = models.CharField(max_length=140)
     content = models.CharField(max_length=500)
+    createdat = models.DateTimeField(auto_now_add=True)
+    comment = models.IntegerField(validators=[MaxValueValidator(100),MinValueValidator(0)], default=0)
     #pass
 
 class Mentor(models.Model):
