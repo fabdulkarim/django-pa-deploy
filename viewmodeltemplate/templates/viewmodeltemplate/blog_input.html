@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+New Blog
+{% endblock %}
+
+{% block content %}
+    {% include 'top-content-blog.html' %}
+    <div class="container">
+        <form action="{% url 'viewmodeltemplate:blogsubmit' %}" method="POST">
+            {% csrf_token %}
+            <p>
+                <input type="text" id="image" name="image" placeholder="www.picsum.com"/>
+                Link Gambar
+            </p>
+            <p>
+                <input type="text" id="title" name="title" placeholder="Judul Sementara"/>
+                Judul
+            </p>
+            <p>
+                <input type="text" id="content" name="content" placeholder=""/>
+                Teks Artikel
+            </p>
+            <button type="submit">Posting Blog Ini</button>
+        </form>
+    </div>
+{% endblock %}

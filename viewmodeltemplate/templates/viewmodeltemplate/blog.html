@@ -1,0 +1,24 @@
+<!---------------------------main article start------------------------->
+{% extends 'base.html' %}
+{% block title %}
+Blog
+{% endblock %}
+{% block content %}
+{% load static %}
+    {% include 'top-content-blog.html' %}
+    <div class="button-blog-input">
+        <a href="{% url 'viewmodeltemplate:blog_input' %}">Tambahkan posting blog baru</a>
+    </div>
+    {% if blog_object %}
+        {% for bo in blog_object %}
+            <div class="content-singles">
+                <img src="{{bo.image}}" alt="" class="content-img">
+                <h1>{{bo.title}}</h1>
+                <div class="content-text">
+                    {{bo.content}}
+                </div>
+                <a href="{% url 'viewmodeltemplate:blogpost' bo.id %}">Baca Lebih Lanjut</a>
+            </div>
+        {% endfor %}
+    {% endif %}
+{% endblock %}

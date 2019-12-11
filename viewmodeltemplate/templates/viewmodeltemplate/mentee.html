@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block title %}
+Mentee
+{% endblock %}
+
+{% block content %}
+    {% include 'top-content.html' %}
+    {% if mentees %}
+        {% for mo in mentees %}
+            <div class="container">
+                <div class="row single-lines">
+                    <div class="col-md-4">
+                        <div class="profile-pic-wrapper">
+                            <img src="{{mo.image}}" alt="">
+                        </div>
+                    </div>
+                    <div class="col-md-8">
+                        <h2>{{mo.name}}</h2>
+                        <div>{{mo.quotes}}</div>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    {% else %}
+        <p>There are no Mentee available</p>
+    {% endif %}
+{% endblock %}
